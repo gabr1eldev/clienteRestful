@@ -21,8 +21,9 @@ public class Cliente implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String cpf;
+	private Long id;
 	
+	private String cpf;	
 	private String nome;
 	private String rg;
 	private Integer idade;
