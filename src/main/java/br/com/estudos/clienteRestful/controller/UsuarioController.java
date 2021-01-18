@@ -2,6 +2,8 @@ package br.com.estudos.clienteRestful.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +22,8 @@ public class UsuarioController {
 	
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public ResponseEntity<Usuario> salvar(Usuario usuario) {
+	@PostMapping
+	public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario) {
 		String username = usuario.getUsername();
 		
 		
