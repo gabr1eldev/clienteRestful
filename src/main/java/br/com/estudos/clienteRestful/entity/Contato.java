@@ -1,4 +1,4 @@
-package br.com.estudos.clienteRestful;
+package br.com.estudos.clienteRestful.entity;
 
 import java.io.Serializable;
 
@@ -12,19 +12,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Usuario implements Serializable{
+public class Contato implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String username;
-	private String password;
-	private boolean admin;
+	private String numero;
+	
 	
 
 }

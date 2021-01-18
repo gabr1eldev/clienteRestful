@@ -1,4 +1,4 @@
-package br.com.estudos.clienteRestful;
+package br.com.estudos.clienteRestful.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;

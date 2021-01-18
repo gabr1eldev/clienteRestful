@@ -1,4 +1,4 @@
-package br.com.estudos.clienteRestful;
+package br.com.estudos.clienteRestful.entity;
 
 import java.io.Serializable;
 
@@ -12,18 +12,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-public class Contato implements Serializable{
+public class Endereco implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	
-	private String numero;
-	
-	
+	private String cep;
+	private String rua;
+	private Integer numero;
+	private String bairro;
+	private String cidade;
+	private String estado;
 
 }
