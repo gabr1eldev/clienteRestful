@@ -6,11 +6,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ForeignKey;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@SuppressWarnings("deprecation")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,5 +34,10 @@ public class Endereco implements Serializable{
 	private String bairro;
 	private String cidade;
 	private String estado;
+	
+	@ForeignKey(name = "clienteEnd_id")
+	@ManyToOne
+	@JsonIgnore
+	private Cliente enderecoCliente;
 
 }
