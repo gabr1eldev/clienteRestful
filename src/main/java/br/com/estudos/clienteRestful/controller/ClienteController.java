@@ -27,6 +27,13 @@ public class ClienteController {
 	
 	@PostMapping
 	public ResponseEntity<Cliente> salvar(@RequestBody Cliente cliente) {
+		for(int pos = 0; pos < cliente.getContatos().size(); pos++) {
+			cliente.getContatos().get(pos).setContatoCliente(cliente);
+		}
+		
+		for(int pos = 0; pos < cliente.getEndereco().size(); pos++) {
+			cliente.getEndereco().get(pos).setEnderecoCliente(cliente);
+		}
 		
 		Cliente salvo = clienteRepository.save(cliente);
 		
