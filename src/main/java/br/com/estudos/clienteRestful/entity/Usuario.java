@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,5 +29,10 @@ public class Usuario implements Serializable{
 	private String password;
 	private boolean admin;
 	
+	@PrePersist
+	void preBCrypt() {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+		encoder.encode(password);
+	}
 
 }
