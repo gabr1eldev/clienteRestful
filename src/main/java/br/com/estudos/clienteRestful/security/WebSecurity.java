@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+
 import br.com.estudos.clienteRestful.service.CustomUserDetailService;
 
 @EnableWebSecurity
@@ -21,7 +22,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/api/usuario").permitAll()
-			.antMatchers("/api/cliente").hasAnyRole("USER","ADMIN")
+			.antMatchers("/api/cliente/**").authenticated()
+			.anyRequest().denyAll()
 			.and()
 			.httpBasic()
 			.and()
@@ -33,4 +35,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(customUserDetailService)
 		.passwordEncoder(new BCryptPasswordEncoder());
 	}
+	
+	
 }

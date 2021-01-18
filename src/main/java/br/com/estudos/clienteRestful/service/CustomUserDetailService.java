@@ -3,6 +3,7 @@ package br.com.estudos.clienteRestful.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,11 +19,10 @@ public class CustomUserDetailService implements UserDetailsService{
 	
 	private final UsuarioRepository usuarioRepository;
 	
+	@Autowired
 	public CustomUserDetailService(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
-
-
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

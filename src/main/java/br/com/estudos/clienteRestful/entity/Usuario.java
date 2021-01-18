@@ -28,11 +28,12 @@ public class Usuario implements Serializable{
 	private String username;
 	private String password;
 	private boolean admin;
+
 	
 	@PrePersist
 	void preBCrypt() {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		encoder.encode(password);
+		setPassword(encoder.encode(password));
 	}
 
 }
