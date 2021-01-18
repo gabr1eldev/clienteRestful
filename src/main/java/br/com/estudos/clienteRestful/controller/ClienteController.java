@@ -76,6 +76,13 @@ public class ClienteController {
 		
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@DeleteMapping("{id}")
+	public ResponseEntity<Cliente> deletar(@PathVariable("id") Long id) {
+		clienteRepository.deleteById(id);
+		
+		return new ResponseEntity("Cliente Deletado com sucesso!",HttpStatus.OK);
+	}
 
 
 }
