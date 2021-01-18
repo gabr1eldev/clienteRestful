@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,6 +40,7 @@ public class Cliente implements Serializable{
 	
 	private LocalDate dataCadastro;
 	
+	@PrePersist
 	void preDataCadastro() {
 		setDataCadastro(LocalDate.now());
 		
