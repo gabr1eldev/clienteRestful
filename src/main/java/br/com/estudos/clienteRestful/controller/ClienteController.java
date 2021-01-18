@@ -60,6 +60,22 @@ public class ClienteController {
 		return new ResponseEntity(cliente,HttpStatus.OK);
 	}
 	
+	@PutMapping
+	public ResponseEntity<Cliente> atualizar(Cliente cliente) {
+		for(int pos = 0; pos < cliente.getContatos().size(); pos++) {
+			cliente.getContatos().get(pos).setContatoCliente(cliente);
+		}
+		
+		for(int pos = 0; pos < cliente.getEndereco().size(); pos++) {
+			cliente.getEndereco().get(pos).setEnderecoCliente(cliente);
+		}
+		
+		Cliente salvo = clienteRepository.save(cliente);
+		
+		return new ResponseEntity<Cliente>(salvo,HttpStatus.OK);
+		
+	}
 	
+
 
 }
